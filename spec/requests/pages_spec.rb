@@ -1,28 +1,26 @@
 require 'spec_helper'
 
 describe "Pages" do
+  subject {page}
 
   describe "Home page" do
+    before {visit '/pages/home'}
 
-    it "should have the content 'Sample App'" do
-      visit '/pages/home'
-      expect(page).to have_content('Survey')
-    end
+    it {should have_content('Survey')}
+    it {should have_title("Survey | Home")}
   end
 
   describe "Help page" do
+    before {visit '/pages/help'}
 
-    it "should have the content 'Help'" do
-      visit '/pages/help'
-      expect(page).to have_content('Help')
-    end
+    it {should have_content('Help')}
+    it {should have_title("Survey | Help")}
   end
 
   describe "About page" do
+    before {visit '/pages/about'}
 
-    it "should have the content 'About Us'" do
-      visit '/pages/about'
-      expect(page).to have_content('About')
-    end
+    it {should have_content('About')}
+    it {should have_title("Survey | About")}
   end
 end
