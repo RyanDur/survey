@@ -4,7 +4,7 @@ describe "Pages" do
   subject {page}
 
   describe "Home page" do
-    before {visit '/pages/home'}
+    before {visit pages_home_path}
 
     it {should have_content 'Survey'}
     it {should have_title 'Survey'}
@@ -12,16 +12,23 @@ describe "Pages" do
   end
 
   describe "Help page" do
-    before {visit '/pages/help'}
+    before {visit pages_help_path}
 
     it {should have_content 'Help'}
     it {should have_title 'Survey | Help'}
   end
 
   describe "About page" do
-    before {visit '/pages/about'}
+    before {visit pages_about_path}
 
     it {should have_content 'About'}
     it {should have_title 'Survey | About'}
+  end
+
+  describe "Contact page" do
+    before {visit pages_contact_path}
+
+    it {should have_content 'Contact'}
+    it {should have_title 'Survey | Contact'}
   end
 end
