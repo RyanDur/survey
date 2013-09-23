@@ -7,7 +7,7 @@ describe "Pages" do
     before {visit '/pages/home'}
 
     it {should have_content('Survey')}
-    it {should have_title("Survey | Home")}
+    it {should have_title("Survey")}
   end
 
   describe "Help page" do
