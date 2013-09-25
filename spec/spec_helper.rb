@@ -53,10 +53,8 @@ Spork.prefork do
     config.include Capybara::DSL
 
     # Speed up tests by lowering BCrypt's cost function.
-    require 'bcrypt'
-    silence_warnings do
-      BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
-    end
+    ActiveModel::SecurePassword.min_cost = true
+
     config.before(:each) do
       if example.metadata[:type] == :request
         Capybara.current_driver = :selenium # or equivalent javascript driver you are using
