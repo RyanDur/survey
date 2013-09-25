@@ -69,7 +69,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-=begin
   class ActiveRecord::Base
     mattr_accessor :shared_connection
     @@shared_connection = nil
@@ -80,5 +79,4 @@ Spork.each_run do
   end
 
   ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-=end
 end
