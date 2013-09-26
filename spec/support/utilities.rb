@@ -11,3 +11,9 @@ RSpec::Matchers.define :have_error_message do |message|
     expect(page).to have_selector('div.alert.alert-error', text: message)
   end
 end
+
+
+shared_examples_for :all_pages do
+  it {should have_selector 'h1', text: heading}
+  it {should have_title full_title(page_title)}
+end
