@@ -45,7 +45,7 @@ describe "signup page" do
       it_should_behave_like :all_pages
 
       it {should have_link 'Sign out'}
-      it {should have_selector 'div.alert.alert-success', text: 'Welcome'}
+      it {should flash_message('success', 'Welcome')}
     end
   end
 end

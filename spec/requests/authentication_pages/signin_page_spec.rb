@@ -12,11 +12,11 @@ describe "signin page" do
   describe "signin" do
     describe "with invalid information" do
       before {click_button sign_in}
-      it {should have_error_message 'Invalid'}
+      it {should flash_message 'error', 'Invalid'}
 
       describe "after visiting another page" do
         before {click_link "Home"}
-        it {should_not have_selector('div.alert.alert-error')}
+        it {should_not flash_message('error', 'Invalid')}
       end
     end
   end
@@ -24,7 +24,7 @@ describe "signin page" do
   describe "with valid information" do
     let(:user) {FactoryGirl.create :user}
     before do
-      valid_signin user
+      signin user
       click_on 'Account'
     end
 
