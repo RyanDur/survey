@@ -17,7 +17,7 @@ describe "signup page" do
 
     describe "after submission" do
       before {click_button submit}
-      it {should have_content 'error'}
+      it {should have_css '.help-inline'}
     end
   end
 
@@ -31,6 +31,7 @@ describe "signup page" do
 
     it "should create a user" do
       expect {click_button submit}.to change(User, :count).by(1)
+      should_not have_css '.help-inline'
     end
 
     describe "after saving the user" do

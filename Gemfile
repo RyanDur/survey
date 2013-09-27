@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.2'
 gem 'pg', '0.15.1'
+gem 'simple_form', '3.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
