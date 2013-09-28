@@ -34,6 +34,11 @@ describe "authorization" do
         before {patch user_path(user)}
         specify {expect(response).to redirect_to(signin_path)}
       end
+
+      describe "visiting the user index" do
+        before {visit users_path}
+        it {should have_title 'Sign in'}
+      end
     end
   end
 
