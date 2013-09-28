@@ -26,4 +26,32 @@ describe "index" do
       end
     end
   end
+
+  describe "delete links" do
+
+    it {should_not have_link 'delete'}
+
+    describe "as an admin user" do
+      let(:admin) {FactoryGirl.create(:admin)}
+      before do
+        signin admin
+        visit users_path
+      end
+
+      it {should have_link 'delete', href: user_path(User.first)}
+
+      it "should be able to delete another user" do
+        user_count = User.count
+        first_user = find('.users').first('li').text
+
+        first(:link, 'delete').click
+        page.driver.browser.switch_to.alert.accept
+
+        find('.users').first('li').text.should_not eq first_user
+        expect(User.count).to eq user_count - 1
+      end
+
+      it {should_not have_link 'delete', href: user_path(admin)}
+    end
+  end
 end
